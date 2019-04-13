@@ -17,35 +17,25 @@ const veggies = addVeggies.addVeggie();
 //   e.preventDefault();
 // };
 
-const ingredientBuilder = (object) => {
-  // console.log(breads);
+const ingredientBuilder = (printLoc, object) => {
   const ingredients = Object.values(object);
-  // console.log(values);
   let domString = '';
   for (const ingredient of ingredients) {
-    domString += `<h3>${ingredient[0]}</h3>`;
-    domString += `<h4>${ingredient[1]}</h4>`;
-    // console.log(`The price of ${ingredient[0]} is ${ingredient[1]}`);
+    domString += `<div>`;
+    domString += `  <p>${ingredient[0]}</p>`;
+    domString += `  <p>${ingredient[1]}</p>`;
+    domString += `</div>`;
   };
-  console.log(domString);
-  util.printToDom('sandwich-form', domString);
+  console.log(object, domString);
+  util.printToDom(printLoc, domString);
 };
 
-  // let domString = '';
-  // for (let i = 0; i < array.length; i++) {
-  //   const displayName = Object.values(array)[i][0];
-  //   const displayPrice = Object.values(array)[i][1];
-  //   domString += `<h3>${displayName}</h3>`;
-  //   domString += `<h4>${displayPrice}</h4>`;
-    // console.log("domString", domString);
-  // };
-  // console.log("domString2", domString);
-// };
-
-// console.log(Object.values(breads)[0][0])
-
 const makeSandwichForm = () => {
-  ingredientBuilder(breads);
+  ingredientBuilder('breadDiv', breads);
+  ingredientBuilder('cheeseDiv', cheeses);
+  ingredientBuilder('meatDiv', meats);
+  ingredientBuilder('veggieDiv', veggies);
+  ingredientBuilder('condimentDiv', condiments);
 };
 
 

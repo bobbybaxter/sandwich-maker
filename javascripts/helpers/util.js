@@ -3,4 +3,6 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 };
 
-export default { printToDom };
+const varToString = varObj => Object.keys(varObj)[0];
+
+export default { printToDom, varToString };
