@@ -1,9 +1,9 @@
 const allVeggies = {
-  tomatoes: .10,
-  lettuce: .10,
-  redOnions: .10,
-  jalapenos: .10,
-  greenPeppers: .10
+  tomatoes: ["Tomatoes", .10],
+  lettuce: ["Lettuce", .10],
+  redOnions: ["Red Onions", .10],
+  jalapenos: ["Jalapeños", .10],
+  greenPeppers: ["Green Peppers", .10]
 };
 
 const addVeggie = () => {
