@@ -1,9 +1,9 @@
 const allBreads = {
-  white: 1.50,
-  wheat: 1.50,
-  italian: 1.50,
-  multigrain: 1.50,
-  glutenFree: 2.00
+  white: 5.00,
+  wheat: 5.00,
+  italian: 5.00,
+  multigrain: 5.00,
+  glutenFree: 7.00
 };
 
 const addBread = () => {
