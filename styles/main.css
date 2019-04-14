@@ -9,3 +9,11 @@ body {
   align-items: center;
   text-align: center;
 }
+
+#sandwich-form {
+  border: 1px solid red;
+}
+
+#shopping-cart {
+  border: 1px solid blue;
+}
