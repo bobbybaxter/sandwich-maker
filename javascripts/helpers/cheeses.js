@@ -1,9 +1,9 @@
 const allCheeses = {
-  cheddar: .25,
-  provalone: .25,
-  swiss: .25,
-  pepperJack: .25,
-  montereyJack: .25
+  montereyCheddar: ["Monterey Cheddar (shredded)", .25],
+  pepperJack: ["Pepper Jack", .25],
+  provalone: ["Provalone", .25],
+  swiss: ["Swiss", .25],
+  whiteAmerican: ["White American", .25]
 };
 
 const addCheese = () => {

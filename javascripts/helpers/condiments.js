@@ -1,9 +1,9 @@
 const allCondiments = {
-  mayonnaise: .10,
-  mustard: .10,
-  parmeseanCheese: .10,
-  oilAndVinegar: .10,
-  tzatzikiCucumber: .10
+  mayonnaise: ["Mayonnaise", .10],
+  mustard: ["Mustard", .10],
+  honeyMustard: ["Honey Mustard", .10],
+  chipotle: ["Chipotle Southwestern", .10],
+  sriracha: ["Creamy Sriracha", .10]
 };
 
 const addCondiment = () => {
