@@ -19,13 +19,13 @@ const pendingSandwich = {
 let idCounter = 0;
 
 // test function, used only to show that items are building behind the scenes
-const buildSandwich = (array) => {
-  let domString = '';
-  array.forEach(currentItem => {
-    domString += `<h3>${currentItem}</h3>`    
-  });
-  util.printToDom('test-items', domString);
-};
+// const buildSandwich = (array) => {
+//   let domString = '';
+//   array.forEach(currentItem => {
+//     domString += `<h3>${currentItem}</h3>`    
+//   });
+//   util.printToDom('test-items', domString);
+// };
 
 const itemToggle = (e) => {
   const id = e.target;
@@ -34,13 +34,13 @@ const itemToggle = (e) => {
   if (id.checked) {
     pendingSandwich.items.push(itemName);
     pendingSandwich.price += Number(itemPrice);
-    buildSandwich(pendingSandwich.items);
+    // buildSandwich(pendingSandwich.items);
   } else {
     pendingSandwich.items.forEach((ingredient, index) => {
       if (ingredient === itemName) {
         pendingSandwich.items.splice(index, 1);
         pendingSandwich.price -= Number(itemPrice);
-        buildSandwich(pendingSandwich.items);
+        // buildSandwich(pendingSandwich.items);
       };
     });
   };
