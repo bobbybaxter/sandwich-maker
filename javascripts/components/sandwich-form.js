@@ -1,4 +1,4 @@
-// import cart from './cart.js';
+import cart from './cart.js';
 
 import addBreads from '../helpers/breads.js';
 import addCheeses from '../helpers/cheeses.js';
@@ -19,13 +19,13 @@ const pendingSandwich = {
 let idCounter = 0;
 
 // test function, used only to show that items are building behind the scenes
-const buildSandwich = (array) => {
-  let domString = '';
-  array.forEach(currentItem => {
-    domString += `<h3>${currentItem}</h3>`    
-  });
-  util.printToDom('test-items', domString);
-};
+// const buildSandwich = (array) => {
+//   let domString = '';
+//   array.forEach(currentItem => {
+//     domString += `<h3>${currentItem}</h3>`    
+//   });
+//   util.printToDom('test-items', domString);
+// };
 
 const itemToggle = (e) => {
   const id = e.target;
@@ -34,15 +34,13 @@ const itemToggle = (e) => {
   if (id.checked) {
     pendingSandwich.items.push(itemName);
     pendingSandwich.price += Number(itemPrice);
-    console.log(pendingSandwich);
-    buildSandwich(pendingSandwich.items);
+    // buildSandwich(pendingSandwich.items);
   } else {
     pendingSandwich.items.forEach((ingredient, index) => {
       if (ingredient === itemName) {
         pendingSandwich.items.splice(index, 1);
         pendingSandwich.price -= Number(itemPrice);
-        console.log(pendingSandwich);
-        buildSandwich(pendingSandwich.items);
+        // buildSandwich(pendingSandwich.items);
       };
     });
   };
@@ -64,11 +62,12 @@ const ingredientBuilder = (printLoc, object) => {
 
 // test function, possibly be moved to cart.js when built
 const addToCart = (e) => {
-  util.printToDomAdd('shopping-cart', pendingSandwich.items);
-  util.printToDomAdd('shopping-cart', pendingSandwich.price);
-  let allCheckboxes = document.querySelectorAll("input.ingredient-selector");
-  allCheckboxes.checked = false;
+  e.preventDefault();
+  cart.setCart(pendingSandwich);
+  cart.cartToDom();
   makeSandwichForm();
+  pendingSandwich.items = [];
+  pendingSandwich.price = 0;
 };
 
 const makeSandwichForm = () => {
