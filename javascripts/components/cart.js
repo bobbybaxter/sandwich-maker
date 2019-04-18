@@ -25,11 +25,11 @@ const cartToDom = (e) => {
   let domString = '<div>';
   domString = `<h2>Cart:</h2>`;
   for (let i = 0; i < myCart.length; i++) {
-    domString += `<table class="table">`;
+    domString += `<table class="table table-sm table-borderless">`;
     domString += `  <tbody>`;
     domString += `    <tr>`;
-    domString += `      <td>${myCart[i].items.join(', ')}</td>`;
-    domString += `      <td>$${myCart[i].price.toFixed(2)}</td>`;
+    domString += `      <td class="col-6 item-text">${myCart[i].items.join(', ')}</td>`;
+    domString += `      <td class="col-6 text-right">$${myCart[i].price.toFixed(2)}</td>`;
     domString += `    </tr>`;
     domString += `  </tbody>`;
     domString += `</table>`;
@@ -48,23 +48,23 @@ const buildSubtotal = () => {
   const total = itemsPrice + tax;
   let domString = `<div>`;
   domString += `  <h2>Subtotal:</h2>`;
-  domString += `  <table class="table">`;
+  domString += `  <table class="table table-sm table-borderless">`;
   domString += `    <tbody>`;
   domString += `      <tr>`;
-  domString += `        <td>Items:</td>`;
-  domString += `        <td>$${itemsPrice.toFixed(2)}</td>`;
+  domString += `        <td class="col-6">Items:</td>`;
+  domString += `        <td class="col-6 text-right">$${itemsPrice.toFixed(2)}</td>`;
   domString += `      </tr>`;
   domString += `      <tr>`;
-  domString += `        <td>Sales Tax:</td>`;
-  domString += `        <td>$${tax.toFixed(2)}</td>`;
+  domString += `        <td class="col-6">Sales Tax:</td>`;
+  domString += `        <td class="col-6 text-right">$${tax.toFixed(2)}</td>`;
   domString += `      </tr>`;
   domString += `      <tr>`;
-  domString += `        <td>Order Total:</td>`;
-  domString += `        <td>$${total.toFixed(2)}</td>`;
+  domString += `        <td class="col-6"><strong>Order Total:</strong></td>`;
+  domString += `        <td class="col-6 text-right"><strong>$${total.toFixed(2)}</strong></td>`;
   domString += `      </tr>`;
   domString += `    </tbody>`;
   domString += `  </table>`;
-  domString += `  <button type="button" id="checkout">Checkout</button>`;
+  domString += `  <button type="button" id="checkout" class="btn btn-block btn-primary">Checkout</button>`;
   domString += `</div>`;
 
   util.printToDom('subtotal', domString);

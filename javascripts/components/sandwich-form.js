@@ -33,13 +33,13 @@ const itemToggle = (e) => {
   const itemPrice = e.target.nextElementSibling.nextElementSibling.innerText;
   if (id.checked) {
     pendingSandwich.items.push(itemName);
-    pendingSandwich.price += Number(itemPrice);
+    pendingSandwich.price += Number(itemPrice.slice(1));
     // buildSandwich(pendingSandwich.items);
   } else {
     pendingSandwich.items.forEach((ingredient, index) => {
       if (ingredient === itemName) {
         pendingSandwich.items.splice(index, 1);
-        pendingSandwich.price -= Number(itemPrice);
+        pendingSandwich.price -= Number(itemPrice.slice(1));
         // buildSandwich(pendingSandwich.items);
       };
     });
@@ -50,10 +50,10 @@ const ingredientBuilder = (printLoc, object) => {
   const objects = Object.entries(object);
   let domString = '';
   for (const [key, property] of objects) {
-    domString += `<div class="ingredient-box">`;
+    domString += `<div class="ingredient-box item-text">`;
     domString += `  <input type="checkbox" aria-checked="false" class="ingredient-selector" id="${key}"></input>`;
-    domString += `  <p>${property[0]}</p>`;
-    domString += `  <p>${property[1].toFixed(2)}</p>`;
+    domString += `  <p class="m-0"><strong>${property[0]}</strong></p>`;
+    domString += `  <p>$${property[1].toFixed(2)}</p>`;
     domString += `</div>`;
     document.getElementById('divProductOptions').addEventListener('change', itemToggle);
   };
