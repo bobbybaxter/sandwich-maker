@@ -1,4 +1,4 @@
-// import cart from './cart.js';
+import cart from './cart.js';
 
 import addBreads from '../helpers/breads.js';
 import addCheeses from '../helpers/cheeses.js';
@@ -34,14 +34,12 @@ const itemToggle = (e) => {
   if (id.checked) {
     pendingSandwich.items.push(itemName);
     pendingSandwich.price += Number(itemPrice);
-    console.log(pendingSandwich);
     buildSandwich(pendingSandwich.items);
   } else {
     pendingSandwich.items.forEach((ingredient, index) => {
       if (ingredient === itemName) {
         pendingSandwich.items.splice(index, 1);
         pendingSandwich.price -= Number(itemPrice);
-        console.log(pendingSandwich);
         buildSandwich(pendingSandwich.items);
       };
     });
@@ -64,11 +62,12 @@ const ingredientBuilder = (printLoc, object) => {
 
 // test function, possibly be moved to cart.js when built
 const addToCart = (e) => {
-  util.printToDomAdd('shopping-cart', pendingSandwich.items);
-  util.printToDomAdd('shopping-cart', pendingSandwich.price);
-  let allCheckboxes = document.querySelectorAll("input.ingredient-selector");
-  allCheckboxes.checked = false;
+  e.preventDefault();
+  cart.setCart(pendingSandwich);
+  cart.cartToDom();
   makeSandwichForm();
+  pendingSandwich.items = [];
+  pendingSandwich.price = 0;
 };
 
 const makeSandwichForm = () => {
